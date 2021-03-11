@@ -22,10 +22,10 @@ class Utils:
 
     @staticmethod
     def manage_quantity(id):
-        prodSer = Utils.get_object_quantity(id)
+        product = Utils.get_object_quantity(id)
         data = None
-        if prodSer:
-            serializer = InfoProductSerializer(prodSer)
+        if product:
+            serializer = InfoProductSerializer(product)
             response = requests.get(baseUrl + 'product/' + str(serializer.data['tigID']) + '/')
             data = response.json()
             data["quantity"] = serializer.data['quantity']
